@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de firmas de correo</title>
+</head>
+<body style="font-family: sans-serif; background-color: #19105f;">
+  <div style="display: flex; flex-direction: colum; justify-content: center; width: auto; align-self: center;">  
+      <div style="display: flex; align-items: center;">
+          <div style="width: 50%; color: #f2f2f2; padding: 56px;">
+            <img src="https://cixtelecom.net/assets/images/logo-white.svg" alt="Cix-telecom" style="width: 100px">
+            <h1>
+              Genera firmas de correo
+            </h1>
+            <div style="padding: 10px; border-style: solid; border-color: white; border-width: 1px; border-radius: 1em; border-spacing: 10px">
+            <p style="text-align: justify; margin: 10px">
+              Mantener sumo cuidado en las firmas generadas y en caso de necesitar modificación de la plantilla solicitar al departamento de 
+              <a href="mailto:vitronic@cix.com.ve" style="text-decoration: none; color: white; font-weight: bold;">encargado.</a>
+            </p>
+          </div>
+        </div>
+        
+        <form id="firma-form" style="margin: 10px; padding: 10px;display: flex; width:350px; flex-direction: column; gap: 10px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; background-color: #f5f5f5;">
+          <div style="display: flex; gap: 10%;">
+            <div style="width: 45%;">
+              <label for="nombre" style="font-weight: bold;">Nombre:</label>
+              <input type="text" id="nombre" name="nombre" required style="width: 90%;border: 1px solid #ccc; margin-top: 10px; padding: 5px; border-radius: 3px;">
+            </div>  
+            <div style="width: 45%;">
+              <label for="apellido" style="font-weight: bold;">Apellido:</label>
+              <input type="text" id="apellido" name="apellido" required style=" width: 90%;border: 1px solid #ccc; margin-top: 10px; padding: 5px; border-radius: 3px;">
+            </div>
+          </div>
+          <label for="cargo" style="font-weight: bold;">Cargo:</label>
+          <input type="text" id="cargo" name="cargo" required style="border: 1px solid #ccc; padding: 5px; border-radius: 3px;">
+        
+          <label for="gerencia" style="font-weight: bold;">Gerencia:</label>
+          <select type="text" id="gerencia" name="gerencia" required style="border: 1px solid #ccc; padding: 5px; border-radius: 3px;">
+              <option value="Comercialización">Gerencia de comercialización</option>
+              <option value="Operaciones">Gerencia de operaciones</option>
+              <option value="Admin. Y Finanzas">Gerencia de Admin. Y Finanzas</option>
+              <option value="RRHH">Gerencia de RRHH</option>
+          </select>
+              
+          <label for="telefono" style="font-weight: bold;">Teléfono:</label>
+          <input type="tel" class="phone" id="telefono" name="telefono" required placeholder="(0000)000-00-00" style="border: 1px solid #ccc; padding: 5px; border-radius: 3px;">
+        
+          <label for="correo" style="font-weight: bold;">Correo electrónico:</label>
+          <input type="email" id="correo" name="correo" required style="border: 1px solid #ccc; padding: 5px; border-radius: 3px;">
+        
+          <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Generar firma</button>
+        </form>
+      </div>
+
+      </div>
+        <div style="-webkit-box-shadow: 9px 10px 37px -15px rgba(0,0,0,0.75); -moz-box-shadow: 9px 10px 37px -15px rgba(0,0,0,0.75); box-shadow: 9px 10px 37px -15px rgba(0,0,0,0.75); background-color: white; margin: 20px 20% 20px 20%; width: 60%; border-radius: 1em; border-width:1px; border-color: white; border-style:solid; text-align: center;">
+          <h3 style="color: #000000; font-style: italic; font-weight: 900; font-size: 24px;">
+            Así se vera tu firma de correo electronico
+          </h3>
+        </div>
+       <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+          <div style="display: flex; flex-direction: column; width: 66%; align-items: center;">
+                  <h2 style="color: white;"> Desktop </h2>
+                  <div id="renderd" style="display: inline-block; margin: 10px 20px 10px 10px; width: 90%; padding: 10px; background-color: white;border-style: solid; border-color: white; border-width: 1px; border-radius: 1em; border-spacing: 10px">
+          
+                  </div>
+          </div>
+          <div style="display: flex; flex-direction: column; width: 30%; align-items: center;">
+                <h2 style="color: white;"> Mobile </h2>
+                <div id="renderm" style="display: inline-block; margin: 10px 10px 10px 10px; width: 90%; padding: 10px; background-color: white;border-style: solid; border-color: white; border-width: 1px; border-radius: 1em; border-spacing: 10px">
+
+                </div>
+        </div>
+      </div>
+      <script>
+          const telefonoInput = document.getElementById("telefono");
+
+          telefonoInput.addEventListener("input", function(event) {
+            const value = event.target.value;
+            const formattedValue = formatTelefono(value);
+            telefonoInput.value = formattedValue;
+          });
+
+          function formatTelefono(value) {
+            // Elimina espacios en blanco
+            let formattedValue = value.replace(/\s/g, "");
+
+            // Añadir paréntesis al inicio
+            if (!formattedValue.startsWith("(")) {
+              formattedValue = "(" + formattedValue;
+            }
+
+            // Añadir guiones después de los 3 dígitos
+            if (formattedValue.length === 5) {
+              formattedValue = formattedValue + ") ";
+            }
+
+            // Añadir guiones después de los 8 dígitos
+            if (formattedValue.length === 9) {
+              formattedValue = formattedValue + "-";
+            }
+
+            // Añadir guiones después de los 8 dígitos
+            if (formattedValue.length === 12) {
+              formattedValue = formattedValue + "-";
+            }
+
+            return formattedValue;
+          }
+
+        const form = document.getElementById('firma-form');
+        const firmaGenerada = document.getElementById('firma-generada');
+
+            form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const nombre = document.getElementById('nombre').value;
+            const apellido = document.getElementById('apellido').value;
+            const cargo = document.getElementById('cargo').value;
+            const gerencia = document.getElementById('gerencia').value;
+            const empresa = "Telecomunicaciones Rocarli C.A";
+            const rif = "J-40489642-2";
+            const telefono = document.getElementById('telefono').value
+            const correo = document.getElementById('correo').value;
+            const paginaWeb = "www.cix.com.ve";
+            const direccion = "Av. La Paz Qta 11A. Sector Las Avenidas, Maturín Edo. Momagas.";
+
+            // Generar la firma HTML
+            const firma = `
+
+<table height="300px" width="100%">
+  <tr border-spacing: 10px;>
+    <th colspan="4" bgcolor="#e73f34" height="30px">
+      <span style="font-weight: bold;  color: White; font-style: italic; padding: 10px;">
+        CIX / El Súper Internet de Maturín</span>
+    </th>
+  </tr>
+  <tr>
+    <td colspan="2" ALIGN="right" WIDTH="50%">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi3es524NRedsrR_jNzz0skekEMzVMvXGEjQ&amp;usqp=CAU"
+    alt="Foto" style="height: 140px; margin-right: 10px;">
+    </td>
+    <td colspan="2" WIDTH="50%">
+<table width="100%" height="16%">
+  <tr height="16%">
+    <td>
+        <span style="font-weight: bold;">${nombre} ${apellido}</span>
+    </td>
+  </tr>
+  <tr height="16%">
+    <td>
+        <span style="font-weight: bold;">${cargo}</span>
+    </td>
+  </tr>
+  <tr height="16%">
+    <td>
+        <span style="font-weight: bold;">Gerencia de ${gerencia}</span>
+    </td>
+  </tr>
+  <tr height="16%">
+    <td>
+        <span>${empresa}</span>
+    </td>
+  </tr>
+<tr height="16%">
+    <td>
+      <span>
+        <a href="tel:${telefono}" style="color: #000000;">${telefono}
+        </a>
+      </span>
+    </td>
+  </tr>
+<tr height="16%">
+    <td>
+      <span>
+        <a href="mailto:${correo}" style="color: #000000; ">${correo}</a>
+      </span>
+    </td>
+</table>
+</td>
+  </tr>
+<tr height="50px">
+    <td width="30%"></td>
+    <td colspan="2">
+   <table width="100%">
+   <th width="31%"></th>
+   <th>
+    <td>
+    <a href="https://www.facebook.com/cixve">
+      <img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/facebook-icon-2x.png" alt="facebook" style="background-color: rgb(15, 8, 156); width: 30px; display: block;"/>
+    </a>
+    </td>
+   </th>
+   <th>
+    <td>
+      <a href="https://twitter.com/cixve">
+        <img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/twitter-icon-2x.png" alt="twitter" style="background-color: rgb(15, 8, 156); width: 30px; display: block;"/>
+      </a>  
+   </td>
+   </th>
+   <th>
+    <td>
+      <a href="https://linkedin.com/company/cixve">
+        <img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/linkedin-icon-2x.png" alt="twitter" style="background-color: rgb(15, 8, 156); width: 30px; display: block;"/>
+    </td>
+   </th>
+   <th>
+    <td>
+      <a href="https://instagram.com/cixve">
+      <img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/instagram-icon-2x.png" alt="twitter" style="background-color: rgb(15, 8, 156); width: 30px; display: block;"/>
+    </td>
+   </th>
+   <th width="31%"></th>
+   </table>
+</td>
+<td width="30%"></td>
+  </tr>
+  <tr heigth="20px">
+    <td ALIGN="center" colspan="4" height="20px" bgcolor="#f2f2f2">
+     <p style="background-color: #f2f2f2; color: #666666; padding: 10px; text-align: center;">
+&copy; Telecomunicaciones Rocarli C.A. / 2024 / ${rif}
+</p>
+    </td>
+  </tr>
+  <tr height="20px">
+    <td ALIGN="center" colspan="4" height="20px" bgcolor="#19105f">
+     <a href="https://www.cix.com.ve" style="text-decoration:none;"><p style="color: #f2f2f2; padding: 5px; text-decoration:none;">www.cix.com.ve</p></a>
+    </td>
+  </tr>
+</table>
+`
+;
+            // Seleccionar y renderizar
+            const render1= document.getElementById("renderd")
+            renderd.innerHTML = firma;
+
+            const render2= document.getElementById("renderm")
+            renderm.innerHTML = firma;
+
+            // Copiar la firma al portapapeles //
+            /*navigator.clipboard.writeText(firma);*/
+
+                   // Mostrar un mensaje de éxito
+            alert('¡Firma generada');
+            });           
+      </script>
+    </body>
+</html>
