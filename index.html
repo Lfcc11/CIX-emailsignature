@@ -128,108 +128,129 @@
 
             // Generar la firma HTML
             const firma = `
-
-<table height="300px" width="100%">
-  <tr border-spacing: 10px;>
-    <th colspan="4" bgcolor="#e73f34" height="30px">
-      <span style="font-weight: bold;  color: White; font-style: italic; padding: 10px;">
-        CIX / El Súper Internet de Maturín</span>
-    </th>
-  </tr>
-  <tr>
-    <td colspan="2" ALIGN="right" WIDTH="50%">
-    <img src="https://cixtelecom.net/img/profile.png"
-    alt="Foto" style="height: 140px; margin-right: 10px;">
-    </td>
-    <td colspan="2" WIDTH="50%">
-<table width="100%" height="16%">
-  <tr height="16%">
-    <td>
-        <span style="font-weight: bold;">${nombre} ${apellido}</span>
-    </td>
-  </tr>
-  <tr height="16%">
-    <td>
-        <span style="font-weight: bold;">${cargo}</span>
-    </td>
-  </tr>
-  <tr height="16%">
-    <td>
-        <span style="font-weight: bold;">Gerencia de ${gerencia}</span>
-    </td>
-  </tr>
-  <tr height="16%">
-    <td>
-        <span>${empresa}</span>
-    </td>
-  </tr>
-<tr height="16%">
-    <td>
-      <span>
-        <a href="tel:${telefono}" style="color: #000000;">${telefono}
-        </a>
-      </span>
-    </td>
-  </tr>
-<tr height="16%">
-    <td>
-      <span>
-        <a href="mailto:${correo}" style="color: #000000; ">${correo}</a>
-      </span>
-    </td>
-</table>
-</td>
-  </tr>
-<tr height="50px">
-    <td width="30%"></td>
-    <td colspan="2">
-   <table width="100%" bgcolor="#ffffff">
-   <th width="31%"></th>
-   <th>
-    <td>
-    <a href="https://www.facebook.com/cixve">
-      <img src="https://cixtelecom.net/img/facebook-icon-2x.webp" alt="facebook" style="background-color: rgb(15, 8, 156); width: 30px; display: block;"/>
-    </a>
-    </td>
-   </th>
-   <th>
-    <td>
-      <a href="https://twitter.com/cixve">
-        <img src="https://cixtelecom.net/img/twitter-icon-2x.webp" alt="twitter" style="background-color: rgb(15, 8, 156); width: 30px; display: block;"/>
-      </a>  
-   </td>
-   </th>
-   <th>
-    <td>
-      <a href="https://linkedin.com/company/cixve">
-        <img src="https://cixtelecom.net/img/linkedin-icon-2x.webp" alt="twitter" style="background-color: rgb(15, 8, 156); width: 30px; display: block;"/>
-    </td>
-   </th>
-   <th>
-    <td>
-      <a href="https://instagram.com/cixve">
-      <img src="https://cixtelecom.net/img/instagram-icon-2x.webp" alt="twitter" style="background-color: rgb(15, 8, 156); width: 30px; display: block;"/>
-    </td>
-   </th>
-   <th width="31%"></th>
-   </table>
-</td>
-<td width="30%"></td>
-  </tr>
-  <tr heigth="20px">
-    <td ALIGN="center" colspan="4" height="20px" bgcolor="#f2f2f2">
-     <p style="background-color: #f2f2f2; color: #666666; padding: 10px; text-align: center;">
-&copy; Telecomunicaciones Rocarli C.A. / 2024 / ${rif}
-</p>
-    </td>
-  </tr>
-  <tr height="20px">
-    <td ALIGN="center" colspan="4" height="20px" bgcolor="#19105f">
-     <a href="https://www.cix.com.ve" style="text-decoration:none;"><p style="color: #f2f2f2; padding: 5px; text-decoration:none;">www.cix.com.ve</p></a>
-    </td>
-  </tr>
-</table>
-`
+              <table height="250px" width="380px">
+                <tr>
+                  <td colspan="1" align="center" width="100px" height="140px">
+                    <img src="https://cixtelecom.net/img/profile.png" alt="Foto" style="height: 100%; margin: 10px;">
+                  </td>
+                  <td colspan="3" width="100%">
+                    <table width="100%" height="100%">
+                       <tr height="12,5%">
+                       </tr>
+                       <tr height="12,5%">
+                        <td>
+                          <span style="font-weight: bold; font-size:12px;">
+                            ${nombre} ${apellido}
+                          </span>
+                        </td>
+                      </tr>
+                      <tr height="12,5%">
+                        <td>
+                          <span style="font-weight: bold; font-size:12px;">
+                            ${cargo}
+                          </span>
+                        </td>
+                      </tr>
+                      <tr height="12,5%">
+                        <td>
+                          <span style="font-weight: bold; font-size:12px;">
+                            Gerencia de ${gerencia}
+                          </span>
+                        </td>
+                      </tr>
+                      <tr height="12,5%">
+                        <td>
+                          <span style="font-size:12px;">
+                            ${empresa}
+                          </span>
+                        </td>
+                      </tr>
+                      <tr height="12,5%">
+                        <td>
+                          <span>
+                            <a href="tel:${telefono}" style="color: #000000; font-size:12px;">
+                              ${telefono}
+                            </a>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr height="12,5%">
+                        <td>
+                          <span>
+                            <a href="mailto:${correo}" style="color: #000000;font-size:12px;">
+                              ${correo}
+                            </a>
+                          </span>
+                        </td>
+                       </tr>
+                       <tr height="12,5%">
+                       </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr height="50px">
+                    <td colspan="2">
+                      <table width="100%" bgcolor="#ffffff">
+                        <th width="30%">
+                        </th>
+                        <th>
+                          <td>
+                            <a href="https://www.facebook.com/cixve">
+                              <img src="https://cixtelecom.net/img/facebook-icon-2x.webp" alt="facebook" style="background-color: rgb(15, 8, 156); width: 30px; display: block;"/>
+                            </a>
+                          </td>
+                        </th>
+                        <th>
+                          <td>
+                            <a href="https://twitter.com/cixve">
+                              <img src="https://cixtelecom.net/img/twitter-icon-2x.webp" alt="twitter" style="background-color: rgb(15, 8, 156); width: 30px; display: block;"/>
+                            </a>  
+                          </td>
+                        </th>
+                        <th>
+                          <td>
+                            <a href="https://linkedin.com/company/cixve">
+                              <img src="https://cixtelecom.net/img/linkedin-icon-2x.webp" alt="twitter" style="background-color: rgb(15, 8, 156); width: 30px; display: block;"/>
+                            </a>
+                          </td>
+                        </th>
+                        <th>
+                          <td>
+                            <a href="https://instagram.com/cixve">
+                              <img src="https://cixtelecom.net/img/instagram-icon-2x.webp" alt="twitter" style="background-color: rgb(15, 8, 156); width: 30px; display: block;"/>
+                            </a>  
+                          </td>
+                        </th>
+                        <th width="31%">
+                        </th>
+                      </table>
+                    </td>
+                  <tr height="25px">
+                    <td ALIGN="center" colspan="4" height="25px" bgcolor="#19105f">
+                      <a href="https://www.cix.com.ve" style="text-decoration:none; font-size:12px;">
+                        <p style="color: #f2f2f2; padding: 5px; text-decoration:none;">
+                          www.cix.com.ve
+                        </p>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr border-spacing: 10px;>
+                    <th colspan="4" bgcolor="#e73f34" height="25px">
+                      <span style="font-weight: bold;  color: White; font-style: italic; padding: 10px; font-size:12px;">
+                        CIX / El Súper Internet de Maturín
+                      </span>
+                    </th>
+                  </tr>
+                </tr>
+                <tr heigth="25px">
+                  <td ALIGN="center" colspan="4" height="25px" bgcolor="#f2f2f2">
+                    <p style="background-color: #f2f2f2; color: #666666; padding: 5px; text-align: center; font-size:12px;">
+                    &copy; Telecomunicaciones Rocarli C.A. / 2024 / ${rif}
+                    </p>
+                  </td>
+                </tr>
+              </table>
+              `
 ;
             // Seleccionar y renderizar
             const render1= document.getElementById("renderd")
